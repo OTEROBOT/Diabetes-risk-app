@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: diabetes-risk-app
+    runtime: docker
+    plan: free            # ฟรี = ฐานข้อมูล SQLite และรูปที่อัปโหลดจะหายเมื่อรีสตาร์ต/ดีพลอยใหม่ (ดู README)
+    # ถ้าต้องการให้ข้อมูลอยู่ถาวร: เปลี่ยน plan เป็น starter แล้วเปิด 3 บรรทัดด้านล่าง
+    # disk:
+    #   name: data
+    #   mountPath: /var/data
+    #   sizeGB: 1
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false       # ตั้งในหน้า Render (ก่อน deploy ครั้งแรก)
+      - key: APP_URL
+        sync: false       # เช่น https://diabetes-risk-app.onrender.com
+      - key: BREVO_API_KEY
+        sync: false       # API key จาก Brevo (ขึ้นต้น xkeysib-)
+      - key: MAIL_FROM_EMAIL
+        sync: false       # อีเมลผู้ส่งที่ยืนยันแล้วใน Brevo
+      - key: MAIL_FROM_NAME
+        value: เว็บแอปทำนายความเสี่ยงโรคเบาหวาน

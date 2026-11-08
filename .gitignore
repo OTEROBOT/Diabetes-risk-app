@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment variables & secrets (Protect API keys)
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+
+# Logs
+*.log
+debug.log
+server.log
+err.log
+out.log
+
+# Archives & Temporary
+*.zip
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
